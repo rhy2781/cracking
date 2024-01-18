@@ -1,7 +1,6 @@
 import frequencyApproach
 import bitManipulationApproach
 
-
 def main():
     fa = frequencyApproach
     not_palindrome = "tacodate"
@@ -12,11 +11,11 @@ def main():
     print(fa.palindromePermutation(palindrome))
     print(fa.palindromePermutation(palindrome1))
 
-    print("-----")
     ba = bitManipulationApproach
     print(ba.palindromePermutation(not_palindrome))
     print(ba.palindromePermutation(palindrome))
     print(ba.palindromePermutation(palindrome1))
+
 
 
 if __name__ == "__main__":

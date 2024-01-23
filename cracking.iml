@@ -14,4 +14,11 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Python 3.10 interpreter library" level="application" />
   </component>
+  <component name="PyNamespacePackagesService">
+    <option name="namespacePackageFolders">
+      <list>
+        <option value="$MODULE_DIR$/src/linkedList" />
+      </list>
+    </option>
+  </component>
 </module>

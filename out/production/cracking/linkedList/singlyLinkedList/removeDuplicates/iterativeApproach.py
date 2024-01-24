@@ -1,7 +1,7 @@
-from linkedList.singlyLinkedList.node import Node
+from linkedList.singlyLinkedList.node import node
 
 
-def removeDuplicate(n: Node):
+def removeDuplicate(n: node):
     s = set()
     prev = None
     while n:

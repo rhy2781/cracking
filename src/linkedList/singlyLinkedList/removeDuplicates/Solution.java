@@ -1,35 +1,48 @@
 package linkedList.singlyLinkedList.removeDuplicates;
 
-import linkedList.singlyLinkedList.node;
+import linkedList.singlyLinkedList.Node;
+
+import java.util.Map;
+import java.util.HashMap;
 
 public class Solution {
-	public static void printList(node n){
-		while(n != null){
-			System.out.print(n.data + " -> ");
-			n = n.next;
+	public static Node createNodeFromDictionary(Integer[][] l){
+		Map<Integer, Node> hm = new HashMap<>();
+		for(int i = 0; i < l.length; i++){
+			hm.put(i, new Node(l[i][0]));
 		}
-		System.out.println();
+		for(int i = 0; i < l.length; i++){
+			Node curr = hm.get(i);
+			if(l[i][1] != null){
+				curr.next = hm.get(l[i][1]);
+			}
+		}
+		return hm.get(0);
 	}
+
 	public static void main(String[] args){
-		node head = new node(100);
-		node one = new node(120);
-		node two = new node(96);
-		node three = new node(34);
-		node four = new node(56);
-		node five = new node(96);
-		node six = new node(96);
+		Integer[][] list = new Integer[][]{
+				{1, 1},
+				{2, 2},
+				{3, 3},
+				{4, 4},
+				{1, 5},
+				{2, 6},
+				{5, null}
+		};
 
-		head.next = one;
-		one.next = two;
-		two.next = three;
-		three.next = four;
-		four.next = five;
-		five.next = six;
+		Node n = createNodeFromDictionary(list);
+		System.out.println(n);
+		setApproach sa = new setApproach();
+		sa.removeDuplicates(n);
+		System.out.println(n);
 
+		System.out.println();
 
-		printList(head);
-		iterativeApproach ia = new iterativeApproach();
-		ia.removeDuplicates(head);
-		printList(head);
+		Node m = createNodeFromDictionary(list);
+		System.out.println(m);
+		runnerApproach ra = new runnerApproach();
+		ra.removeDuplicates(m);
+		System.out.println(m);
 	}
 }

@@ -16,11 +16,10 @@ def main():
     ]
     n = create_node_from_dictionary(l)
     print(n)
+
     ia = iterativeApproach
     ia.removeDuplicate(n)
     print(n)
-
-    print()
 
     m = create_node_from_dictionary(l)
     print(m)

@@ -2,12 +2,12 @@ package linkedList.singlyLinkedList.removeDuplicates;
 
 import java.util.HashSet;
 import java.util.Set;
-import linkedList.singlyLinkedList.node;
+import linkedList.singlyLinkedList.Node;
 
-public class iterativeApproach {
-	public void removeDuplicates(node n){
+public class setApproach {
+	public void removeDuplicates(Node n){
 		Set<Integer> s = new HashSet<>();
-		node prev = null;
+		Node prev = null;
 		while(n != null){
 			if(s.contains(n.data)){
 				prev.next = n.next;

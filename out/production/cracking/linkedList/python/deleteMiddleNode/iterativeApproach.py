@@ -1,11 +1,9 @@
 from linkedList.python.node import node
 
 
-def deleteMiddleNode(n: node) -> None:
-    curr = n
-    prev = None
-    while curr.next:
-        curr.data = curr.next.data
-        prev = curr
-        curr = curr.next
-    prev.next = None
+def deleteMiddleNode(curr: node) -> None:
+    if not curr or not curr.next:
+        return
+    n = curr.next
+    curr.data = n.data
+    curr.next = n.next

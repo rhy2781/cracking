@@ -12,7 +12,7 @@ def main():
     ]
     n = create_node_from_dictionary(l)
     m = get_kth_node(n, 3)
-    print(m)
+    print(n)
     ia = iterativeApproach
     ia.deleteMiddleNode(m)
     print(n)

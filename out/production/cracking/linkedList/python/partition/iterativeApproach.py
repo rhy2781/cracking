@@ -15,4 +15,5 @@ def partition(n: node, k: int) -> node:
         n = n.next
 
     pointer_less.next = parent_greater.next
+    pointer_greater.next = None
     return parent_less.next

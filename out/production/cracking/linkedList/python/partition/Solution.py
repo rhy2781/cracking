@@ -15,7 +15,9 @@ def main():
     ]
     n = create_node_from_dictionary(init)
     print(n)
-    res = iterativeApproach.partition(n, 5)
+    # res = iterativeApproach.partition(n, 5)
+    # print(res)
+    res = iterativeApproach.partition(n, 2)
     print(res)
 
 

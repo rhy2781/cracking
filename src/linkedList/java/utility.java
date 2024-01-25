@@ -30,4 +30,17 @@ public class utility {
 		}
 		return curr;
 	}
+	public static Node createNodeFromArray(int[] l){
+		Map<Integer, Node> hm = new HashMap<>();
+		for(int i = 0; i < l.length; i++){
+			hm.put(i, new Node(l[i]));
+		}
+		for(int k: hm.keySet()){
+			if (hm.containsKey(k + 1)){
+				Node n = hm.get(k);
+				n.next = hm.get(k + 1);
+			}
+		}
+		return hm.get(0);
+	}
 }

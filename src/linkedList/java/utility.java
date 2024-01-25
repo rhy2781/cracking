@@ -20,4 +20,14 @@ public class utility {
 		}
 		return hm.get(0);
 	}
+	public static Node getKthNode(Node n, int k){
+		Node curr = n;
+		k -= 1;
+		while(k > 0){
+			if(curr == null) return null;
+			curr = curr.next;
+			k --;
+		}
+		return curr;
+	}
 }

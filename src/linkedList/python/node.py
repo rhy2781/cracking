@@ -10,8 +10,14 @@ class node:
 
     def __repr__(self):
         curr = self
+        seen = set()
         s = ""
         while curr:
+            if curr in seen:
+                s += " loop"
+                break
+            seen.add(curr)
+
             s += str(curr.data)
             s += " -> "
             curr = curr.next

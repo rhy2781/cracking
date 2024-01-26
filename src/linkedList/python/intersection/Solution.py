@@ -1,6 +1,7 @@
 from linkedList.python.helper import create_node_from_list, get_kth_node
 import iterativeApproach
 
+
 def main():
     init = [3, 1, 5, 9, 7, 2, 1]
     init2 = [4, 6]
@@ -26,5 +27,5 @@ def main():
     print("Intersection at " + str(ia.intersection(longer, unrelated)))
 
 
-if __name__ =="__main__":
+if __name__ == "__main__":
     main()

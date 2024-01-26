@@ -14,6 +14,7 @@ def intersection(one: node, two: node) -> node | None:
     p2 = two
     while p1.next:
         p1 = p1.next
+    while p2.next:
         p2 = p2.next
 
     if p1 != p2:

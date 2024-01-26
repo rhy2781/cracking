@@ -20,7 +20,6 @@ def main():
     print(sa.is_palindrome(palindrome))
     print(sa.is_palindrome(not_palindrome))
 
+
 if __name__ == "__main__":
     main()
-
-

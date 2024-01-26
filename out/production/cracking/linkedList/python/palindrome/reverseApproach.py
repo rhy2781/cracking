@@ -15,8 +15,9 @@ def is_palindrome(curr: node) -> bool:
         while one and two:
             if one.data != two.data:
                 return False
+            one = one.next
+            two = two.next
         return True
 
     reverse = reverse(curr)
     return isEqual(curr, reverse)
-    

@@ -14,6 +14,17 @@ public class Solution {
 		System.out.println(test);
 		System.out.println();
 
+		System.out.println("peek Testing");
+		for(int i = 0; i < 3; i++){
+			try{
+				System.out.println(test.peek(i));
+			}
+			catch (Exception e){
+				System.out.println(e);
+			}
+		}
+		System.out.println(test);
+
 		System.out.println("Testing push limit");
 		for(int i = 0; i < 3; i++){
 			try{

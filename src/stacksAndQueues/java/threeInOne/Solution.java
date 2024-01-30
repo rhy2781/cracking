@@ -2,7 +2,7 @@ package stacksAndQueues.java.threeInOne;
 
 public class Solution {
 	public static void main(String[] args){
-		FixedStack<Integer> test = new FixedStack<>(5);
+		fixedStack<Integer> test = new fixedStack<>(5);
 
 		testisEmptyisFull(test);
 
@@ -57,7 +57,7 @@ public class Solution {
 		System.out.println();
 	}
 
-	private static void testisEmptyisFull(FixedStack<Integer> test) {
+	private static void testisEmptyisFull(fixedStack<Integer> test) {
 		System.out.println("Testing isEmpty and isFull");
 		for(int i = 0; i < 3; i++){
 			System.out.println("Testing stack #" + i);

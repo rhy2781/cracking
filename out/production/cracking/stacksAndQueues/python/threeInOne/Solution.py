@@ -1,4 +1,4 @@
-from FixedStack import fixed
+from fixed_stack import fixed
 
 
 def main():

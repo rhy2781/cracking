@@ -3,13 +3,13 @@ package stacksAndQueues.java.threeInOne;
 import java.util.Arrays;
 import java.util.EmptyStackException;
 
-public class FixedStack<E> {
+public class fixedStack<E> {
 	private Object[] data;
 	private int stackNumber = 3;
 	private int[] indexes;
 	private int stackCapacity;
 
-	public FixedStack(int size){
+	public fixedStack(int size){
 		this.data = new Object[size * 3];
 		this.indexes = new int[stackNumber];
 		this.stackCapacity = size;

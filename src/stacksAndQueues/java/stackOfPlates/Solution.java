@@ -1,4 +1,4 @@
-package stacksAndQueues.java.StackOfPlates;
+package stacksAndQueues.java.stackOfPlates;
 
 public class Solution {
 	public static void main(String [] args){

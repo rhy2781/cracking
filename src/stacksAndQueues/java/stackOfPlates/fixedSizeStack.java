@@ -1,4 +1,4 @@
-package stacksAndQueues.java.StackOfPlates;
+package stacksAndQueues.java.stackOfPlates;
 
 import java.util.Stack;
 

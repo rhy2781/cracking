@@ -10,4 +10,3 @@ def sort(s: List[int]) -> None:
         buffer.append(temp)
     while not s:
         s.append(buffer.pop())
-

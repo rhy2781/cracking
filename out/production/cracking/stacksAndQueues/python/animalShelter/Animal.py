@@ -14,12 +14,12 @@ class Animal(ABC):
         return self.order
 
     def isOlder(self, a: 'Animal') -> bool:
-        return self.order < a.getOrder()
+        return self.order > a.getOrder()
 
     def __repr__(self) -> str:
         s = "[Name: "
         s += self.name
         s += " - Order: "
-        s += self.order
+        s += str(self.order)
         s += "]"
         return s

@@ -1,3 +1,10 @@
-class Dog('Animal'):
+from Animal import Animal
+
+
+class Dog(Animal):
+
     def __init__(self, name: str):
-        super(name)
+        super().__init__(name)
+
+    def isOlder(self, a: Animal) -> bool:
+        return super().isOlder(a)

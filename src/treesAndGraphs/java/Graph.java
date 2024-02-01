@@ -8,6 +8,7 @@ import java.util.Map;
 public class Graph {
 	public List<Node> nodes;
 	public Map<String, Node> mappings;
+
 	public Graph(){
 		this.nodes = new ArrayList<>();
 		this.mappings = new HashMap<>();

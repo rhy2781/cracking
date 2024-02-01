@@ -2,18 +2,18 @@ package treesAndGraphs.java.routeBetweenNodes;
 
 import treesAndGraphs.java.Node;
 import treesAndGraphs.java.Graph;
+import treesAndGraphs.java.State;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class route {
-	public enum State {unvisited, visiting, visited};
-
 	public boolean search(Graph g, Node s, Node e){
 		if(s == e) return true;
 		for(Node n: g.nodes){
 			n.state = State.unvisited;
 		}
+
 		Queue<Node> q = new LinkedList<>();
 		q.add(s);
 		s.state = State.visited;

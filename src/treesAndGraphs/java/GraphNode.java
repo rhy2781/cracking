@@ -4,12 +4,12 @@ package treesAndGraphs.java;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Node {
+public class GraphNode {
 	public String name;
-	public List<Node> neighbors;
+	public List<GraphNode> neighbors;
 	public State state;
 
-	public Node(String name){
+	public GraphNode(String name){
 		this.name = name;
 		this.neighbors = new ArrayList<>();
 		this.state = State.unvisited;

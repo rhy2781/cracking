@@ -2,7 +2,7 @@ package treesAndGraphs.java.routeBetweenNodes;
 
 
 import treesAndGraphs.java.Graph;
-import treesAndGraphs.java.Node;
+import treesAndGraphs.java.GraphNode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,8 +42,8 @@ public class Solution {
 //		g.visualize();
 
 		route r = new route();
-		Node s = g.getNode("S");
-		Node e = g.getNode("E");
+		GraphNode s = g.getNode("S");
+		GraphNode e = g.getNode("E");
 		System.out.println(r.search(g, s, e));
 
 
@@ -51,8 +51,8 @@ public class Solution {
 		g2.initFromAdjacencyList(noConnection);
 		g2.visualize();
 
-		Node s2 =  g2.getNode("S");
-		Node e2 = g2.getNode("E");
+		GraphNode s2 =  g2.getNode("S");
+		GraphNode e2 = g2.getNode("E");
 		System.out.println(r.search(g2, s2, e2));
 	}
 }

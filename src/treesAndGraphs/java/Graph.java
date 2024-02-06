@@ -4,7 +4,6 @@ import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.ui.view.Viewer;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,8 +11,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Graph {
-	public List<Node> nodes;
-	public Map<String, Node> mappings;
+	public List<GraphNode> nodes;
+	public Map<String, GraphNode> mappings;
 
 	public Graph(){
 		this.nodes = new ArrayList<>();
@@ -22,12 +21,12 @@ public class Graph {
 
 	public void initFromAdjacencyList(Map<String, String[]> hm){
 		for(String s: hm.keySet()){
-			Node n = new Node(s);
+			GraphNode n = new GraphNode(s);
 			nodes.add(n);
 			mappings.put(s, n);
 		}
 		for(Map.Entry<String, String[]> entry: hm.entrySet()){
-			Node n = mappings.get(entry.getKey());
+			GraphNode n = mappings.get(entry.getKey());
 			for(String s: entry.getValue()){
 				if(!s.equals("")) {
 					n.neighbors.add(mappings.get(s));
@@ -36,7 +35,7 @@ public class Graph {
 		}
 	}
 
-	public Node getNode(String s){
+	public GraphNode getNode(String s){
 		return this.mappings.get(s);
 	}
 
@@ -85,12 +84,12 @@ public class Graph {
 							"size : 2px; " +
 						"}");
 
-		for(Node n: nodes){
+		for(GraphNode n: nodes){
 			org.graphstream.graph.Node graphNode = graph.addNode(n.name);
 			graphNode.setAttribute("ui.label", n.name);
 		}
-		for(Node n: nodes){
-			for(Node neighbor: n.neighbors)
+		for(GraphNode n: nodes){
+			for(GraphNode neighbor: n.neighbors)
 				graph.addEdge(n.name + neighbor.name, n.name, neighbor.name, true);
 		}
 
@@ -101,10 +100,10 @@ public class Graph {
 	public String toString(){
 		StringBuilder s = new StringBuilder();
 		s.append(("Graph: \n"));
-		for(Node n: nodes){
+		for(GraphNode n: nodes){
 			s.append(n.name);
 			s.append("->");
-			for(Node c: n.neighbors) {
+			for(GraphNode c: n.neighbors) {
 				s.append(c.name);
 				s.append("\n");
 			}

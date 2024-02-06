@@ -29,21 +29,30 @@ public class Solution {
 			put("O", new String[]{""});
 		}};
 
-//		Map<String, String[]> hm = new HashMap<>(){{
-//			put("A", new String[]{"B", "C", "D"});
-//			put("B", new String[] {"C"});
-//			put("C", new String[] {});
-//			put("D", new String[]{"A"});
-//		}};
+		Map<String, String[]> noConnection = new HashMap<>(){{
+			put("S", new String[]{"B", "C", "D"});
+			put("B", new String[] {"C"});
+			put("C", new String[] {});
+			put("D", new String[]{});
+			put("E", new String[]{});
+		}};
+
 		Graph g = new Graph();
 		g.initFromAdjacencyList(hm);
-		g.visualize();
-
+//		g.visualize();
 
 		route r = new route();
 		Node s = g.getNode("S");
 		Node e = g.getNode("E");
 		System.out.println(r.search(g, s, e));
 
+
+		Graph g2 = new Graph();
+		g2.initFromAdjacencyList(noConnection);
+		g2.visualize();
+
+		Node s2 =  g2.getNode("S");
+		Node e2 = g2.getNode("E");
+		System.out.println(r.search(g2, s2, e2));
 	}
 }

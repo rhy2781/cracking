@@ -13,6 +13,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Python 3.10 interpreter library" level="application" />
+    <orderEntry type="library" name="graphstream.gs.core" level="project" />
+    <orderEntry type="library" name="graphstream.gs.ui.swing" level="project" />
   </component>
   <component name="PyNamespacePackagesService">
     <option name="namespacePackageFolders">

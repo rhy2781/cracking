@@ -28,9 +28,17 @@ public class Solution {
 			put("N", new String[]{"O","L"});
 			put("O", new String[]{""});
 		}};
+
+//		Map<String, String[]> hm = new HashMap<>(){{
+//			put("A", new String[]{"B", "C", "D"});
+//			put("B", new String[] {"C"});
+//			put("C", new String[] {});
+//			put("D", new String[]{"A"});
+//		}};
 		Graph g = new Graph();
 		g.initFromAdjacencyList(hm);
-		System.out.println(g);
+		g.visualize();
+
 
 		route r = new route();
 		Node s = g.getNode("S");

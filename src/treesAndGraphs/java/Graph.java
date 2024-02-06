@@ -1,5 +1,11 @@
 package treesAndGraphs.java;
 
+import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.ui.view.Viewer;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +38,63 @@ public class Graph {
 
 	public Node getNode(String s){
 		return this.mappings.get(s);
+	}
+
+	public String loadCssFromFile(String path){
+		StringBuilder s = new StringBuilder();
+
+		try{
+			BufferedReader reader = new BufferedReader(new FileReader(path));
+			String line;
+			while((line = reader.readLine()) != null){
+				s.append(line);
+//				s.append("\n");
+			}
+			return s.toString();
+		}
+		catch (java.io.IOException e){
+			System.out.println(e);
+		}
+		return s.toString();
+	}
+
+	// TODO: Come back to this
+	public void visualize(){
+		System.setProperty("org.graphstream.ui", "swing");
+		org.graphstream.graph.Graph graph = new SingleGraph("name");
+		graph.setAttribute(
+				"ui.stylesheet",
+				"graph{" +
+							"fill-color: white;}" +
+						"node {" +
+							"text-size : 16px; "+
+							"text-padding:1px; "+
+							"text-alignment: center; " +
+							"text-background-mode:rounded-box; " +
+							"text-background-color: yellow; " +
+							"text-color: #222;" +
+							"size: 5px; "+
+						"}" +
+						"edge{ " +
+							"text-size : 16px; "+
+							"text-padding:1px; "+
+							"text-alignment: center; " +
+							"text-background-mode:rounded-box; " +
+							"text-background-color: #EB2; " +
+							"text-color: #222;" +
+							"size : 2px; " +
+						"}");
+
+		for(Node n: nodes){
+			org.graphstream.graph.Node graphNode = graph.addNode(n.name);
+			graphNode.setAttribute("ui.label", n.name);
+		}
+		for(Node n: nodes){
+			for(Node neighbor: n.neighbors)
+				graph.addEdge(n.name + neighbor.name, n.name, neighbor.name, true);
+		}
+
+		Viewer viewer = graph.display();
 	}
 
 	@Override

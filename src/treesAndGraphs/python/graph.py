@@ -1,7 +1,7 @@
 from typing import Dict
 from typing import List
 
-from treesAndGraphs.python.node import node
+from treesAndGraphs.python.graph_node import node
 from treesAndGraphs.python.state import state
 
 

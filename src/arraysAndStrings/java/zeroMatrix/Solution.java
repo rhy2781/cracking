@@ -1,18 +1,11 @@
 package arraysAndStrings.java.zeroMatrix;
 
-import arraysAndStrings.java.zeroMatrix.recordZeroApproach;
+import arraysAndStrings.java.util;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class Solution {
-	static void printMatrix(int[][] matrix){
-		for(int i = 0; i < matrix.length; i++){
-			System.out.print("[");
-			for(int j = 0; j < matrix[0].length; j++){
-				System.out.printf(" %2d ", matrix[i][j]);
-			}
-			System.out.println("]");
-		}
-	}
-
 	public static void main(String [] args){
 		int[][] matrix = new int[][]{
 				{1,2,3,4,5},
@@ -23,12 +16,35 @@ public class Solution {
 				{26,27,28,29,30}
 		};
 
-		printMatrix(matrix);
-		recordZeroApproach ra = new recordZeroApproach();
-		ra.zeroMatrix(matrix);
-		System.out.println();
-		printMatrix(matrix);
+		util.printMatrix(matrix);
+		zeroMatrix(matrix);
+		util.printMatrix(matrix);
+	}
 
+	public static void setRow(int[][] matrix, int row){
+		for(int j = 0; j < matrix[0].length; j++) {
+			matrix[row][j] = 0;
+		}
+	}
+	public static void setCol(int[][] matrix, int col){
+		for(int i = 0; i < matrix.length; i++){
+			matrix[i][col] = 0;
+		}
+	}
 
+	public static void zeroMatrix(int[][] matrix){
+		Set<Integer> row = new HashSet<>();
+		Set<Integer> col = new HashSet<>();
+
+		for(int i = 0; i < matrix.length; i++){
+			for(int j = 0; j < matrix[0].length; j++){
+				if(matrix[i][j] == 0){
+					row.add(i);
+					col.add(j);
+				}
+			}
+		}
+		for(int r: row) setRow(matrix, r);
+		for(int c: col) setCol(matrix, c);
 	}
 }

@@ -1,23 +1,51 @@
 package arraysAndStrings.java.palindromePermutation;
 
-import arraysAndStrings.java.palindromePermutation.bitManipulationApproach;
-import arraysAndStrings.java.palindromePermutation.frequencyApproach;
+import static java.lang.System.out;
 
 public class Solution {
 	public static void main(String[] args){
-		frequencyApproach fa = new frequencyApproach();
 		String not_palindrome = "tacodate";
 		String palindrome = "tacocat";
 		String palindrome1 = "ta c %&oc at";
 
-		System.out.println(fa.palindromePermutation(not_palindrome));
-		System.out.println(fa.palindromePermutation(palindrome));
-		System.out.println(fa.palindromePermutation(palindrome1));
+		out.println("Bit Vector Approach");
+		out.println(palindromePermutationBitVector(not_palindrome));
+		out.println(palindromePermutationBitVector(palindrome));
+		out.println(palindromePermutationBitVector(palindrome1));
 
-		System.out.println("-----");
-		bitManipulationApproach ba = new bitManipulationApproach();
-		System.out.println(ba.palindromePermutation(not_palindrome));
-		System.out.println(ba.palindromePermutation(palindrome));
-		System.out.println(ba.palindromePermutation(palindrome1));
+
+		out.println("Counting Approach");
+		out.println(palindromePermutationCount(not_palindrome));
+		out.println(palindromePermutationCount(palindrome));
+		out.println(palindromePermutationCount(palindrome1));
+	}
+
+	public static boolean palindromePermutationBitVector(String s) {
+		int vector = 0;
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			if ('a' <= c && c <= 'z') {
+				int shift = 1 << (c - 'a');
+				vector ^= shift;
+			}
+		}
+		return (vector & (vector - 1))== 0;
+	}
+
+	public static boolean palindromePermutationCount(String s) {
+		int[] count = new int[26];
+		for(int i = 0; i < s.length(); i++){
+			char c = s.charAt(i);
+			if('a' < c && c < 'z') count[s.charAt(i) - 'a']++;
+		}
+
+		boolean oneLimit = false;
+		for(int i: count) {
+			if (i % 2 != 0) {
+				if (oneLimit) return false;
+				oneLimit = true;
+			}
+		}
+		return true;
 	}
 }

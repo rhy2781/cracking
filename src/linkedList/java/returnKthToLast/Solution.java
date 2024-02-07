@@ -1,31 +1,31 @@
 package linkedList.java.returnKthToLast;
 
-import linkedList.java.Node;
+import linkedList.java.LinkedListNode;
 import linkedList.java.utility;
+import static java.lang.System.out;
 
 public class Solution {
 	public static void main(String[] args){
-		Integer[][] list = new Integer[][]{
-				{1, 1},
-				{2, 2},
-				{3, 3},
-				{4, 4},
-				{1, 5},
-				{2, 6},
-				{5, null}
-		};
+		int[] init = new int[]{1, 2, 3, 4, 1, 2, 5};
+		LinkedListNode n = utility.createNodeFromArray(init);
+		out.println(n);
 
-		runnerApproach ra = new runnerApproach();
+		out.println("k = 3 : " + kth(n, 3));
+		out.println("k = 10 : " + kth(n, 10));
+		out.println("k = 7 : " + kth(n, 7));
+	}
 
-		Node n = utility.createNodeFromDictionary(list);
-		System.out.println(n);
-		Node m = ra.kth(n, 3);
-		System.out.println(m);
-
-		Node k = ra.kth(n, 10);
-		System.out.println(k);
-
-		Node p = ra.kth(n,7);
-		System.out.println(p);
+	public static LinkedListNode kth(LinkedListNode n, int k){
+		LinkedListNode curr = n;
+		while(k > 0){
+			if(curr == null) return null;
+			curr = curr.next;
+			k --;
+		}
+		while(curr != null){
+			curr = curr.next;
+			n = n.next;
+		}
+		return n;
 	}
 }

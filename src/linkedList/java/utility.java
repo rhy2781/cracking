@@ -7,21 +7,45 @@ public class utility {
 
 	private utility(){}
 
-	public static Node createNodeFromDictionary(Integer[][] l){
-		Map<Integer, Node> hm = new HashMap<>();
+	/**
+	 * Creates a node from a 2D Integer Matrix
+	 */
+	public static LinkedListNode createNodeFrom2DList(Integer[][] l){
+		Map<Integer, LinkedListNode> hm = new HashMap<>();
 		for(int i = 0; i < l.length; i++){
-			hm.put(i, new Node(l[i][0]));
+			hm.put(i, new LinkedListNode(l[i][0]));
 		}
 		for(int i = 0; i < l.length; i++){
-			Node curr = hm.get(i);
+			LinkedListNode curr = hm.get(i);
 			if(l[i][1] != null){
 				curr.next = hm.get(l[i][1]);
 			}
 		}
 		return hm.get(0);
 	}
-	public static Node getKthNode(Node n, int k){
-		Node curr = n;
+
+	/**
+	 * Creates a Linked List from an integer array
+	 */
+	public static LinkedListNode createNodeFromArray(int[] l){
+		Map<Integer, LinkedListNode> hm = new HashMap<>();
+		for(int i = 0; i < l.length; i++){
+			hm.put(i, new LinkedListNode(l[i]));
+		}
+		for(int k: hm.keySet()){
+			if (hm.containsKey(k + 1)){
+				LinkedListNode n = hm.get(k);
+				n.next = hm.get(k + 1);
+			}
+		}
+		return hm.get(0);
+	}
+
+	/**
+	 * Gets the Kth node where k represents the position of the node from the start including the beginning node
+	 */
+	public static LinkedListNode getKthNode(LinkedListNode n, int k){
+		LinkedListNode curr = n;
 		k -= 1;
 		while(k > 0){
 			if(curr == null) return null;
@@ -30,17 +54,5 @@ public class utility {
 		}
 		return curr;
 	}
-	public static Node createNodeFromArray(int[] l){
-		Map<Integer, Node> hm = new HashMap<>();
-		for(int i = 0; i < l.length; i++){
-			hm.put(i, new Node(l[i]));
-		}
-		for(int k: hm.keySet()){
-			if (hm.containsKey(k + 1)){
-				Node n = hm.get(k);
-				n.next = hm.get(k + 1);
-			}
-		}
-		return hm.get(0);
-	}
+
 }

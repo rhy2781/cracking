@@ -1,35 +1,36 @@
 package linkedList.java.partition;
 
 import linkedList.java.utility;
-import linkedList.java.Node;
+import linkedList.java.LinkedListNode;
+import static java.lang.System.out;
 
 public class Solution {
 	public static void main(String [] args){
-//		Integer[][] init = new Integer[][]{
-//				{3, 1},
-//				{5, 2},
-//				{8, 3},
-//				{5, 4},
-//				{10, 5},
-//				{2, 6},
-//				{1, null}
-//		};
-		Integer[][] init = new Integer[][]{
-				{18, 1},
-				{5, 2},
-				{8, 3},
-				{5, 4},
-				{10, 5},
-				{2, 6},
-				{1, null}
-		};
+		int[] init = new int[]{18, 5, 8, 5, 10, 2, 1};
+		LinkedListNode n = utility.createNodeFromArray(init);
+		out.println(n);
+		out.println();
+		out.println(partition(n, 6));
+	}
 
+	public static LinkedListNode partition(LinkedListNode head, int value){
+		LinkedListNode parentLess = new LinkedListNode(0), parentGreater = new LinkedListNode(0);
+		LinkedListNode pLess = parentLess, pGreater = parentGreater;
 
-		Node n = utility.createNodeFromDictionary(init);
-		System.out.println(n);
-		iterativeApproach ia = new iterativeApproach();
-		Node res = ia.partition(n, 5);
-		System.out.println(res);
+		while(head != null){
+			if( head.val >= value){
+				pGreater.next = head;
+				pGreater = pGreater.next;
+			}
+			else{
+				pLess.next = head;
+				pLess = pLess.next;
+			}
+			head = head.next;
+		}
+		pGreater.next = null;
 
+		pLess.next = parentGreater.next;
+		return parentLess.next;
 	}
 }

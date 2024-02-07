@@ -1,58 +1,70 @@
 package treesAndGraphs.java.routeBetweenNodes;
 
-
-import treesAndGraphs.java.Graph;
-import treesAndGraphs.java.GraphNode;
-
+import treesAndGraphs.java.utility.Graph;
+import treesAndGraphs.java.utility.GraphNode;
+import treesAndGraphs.java.utility.State;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.Queue;
+import static java.lang.System.out;
 
 public class Solution {
 	public static void main(String[] args){
 		Map<String, String[]> hm = new HashMap<>(){{
 			put("S", new String[]{"A", "B", "C"});
+			put("A", new String[]{"B"});
+			put("B", new String[]{});
+			put("C", new String[]{"E"});
 			put("E", new String[]{""});
-
-			put("A", new String[]{"D","F"});
-			put("B", new String[]{"H","I","J"});
-			put("C", new String[]{"J","M"});
-			put("D", new String[]{"G"});
-			put("F", new String[]{"G","K"});
-			put("G", new String[]{""});
-			put("H", new String[]{"I","K"});
-			put("I", new String[]{"K"});
-			put("J", new String[]{"K","L"});
-			put("K", new String[]{"E"});
-			put("L", new String[]{""});
-			put("M", new String[]{"L","N"});
-			put("N", new String[]{"O","L"});
-			put("O", new String[]{""});
 		}};
-
-		Map<String, String[]> noConnection = new HashMap<>(){{
-			put("S", new String[]{"B", "C", "D"});
-			put("B", new String[] {"C"});
-			put("C", new String[] {});
-			put("D", new String[]{});
-			put("E", new String[]{});
-		}};
-
-		Graph g = new Graph();
+		Graph g = new Graph("First Graph");
 		g.initFromAdjacencyList(hm);
-//		g.visualize();
+		g.visualize();
 
-		route r = new route();
 		GraphNode s = g.getNode("S");
 		GraphNode e = g.getNode("E");
-		System.out.println(r.search(g, s, e));
+		out.println("Searching First Graph");
+		out.println(search(g, s, e));
 
 
-		Graph g2 = new Graph();
-		g2.initFromAdjacencyList(noConnection);
-		g2.visualize();
+		Map<String, String[]> hm1 = new HashMap<>(){{
+			put("S", new String[]{"A", "B", "C"});
+			put("A", new String[]{"B"});
+			put("B", new String[]{});
+			put("C", new String[]{""});
+			put("E", new String[]{""});
+		}};
+		Graph g1 = new Graph("Second Graph");
+		g1.initFromAdjacencyList(hm1);
+		g1.visualize();
 
-		GraphNode s2 =  g2.getNode("S");
-		GraphNode e2 = g2.getNode("E");
-		System.out.println(r.search(g2, s2, e2));
+		GraphNode s1 = g.getNode("S");
+		GraphNode e1 = g.getNode("E");
+		out.println("Searching Second Graph");
+		out.println(search(g1, s1, e1));
+	}
+
+	public static boolean search(Graph g, GraphNode s, GraphNode e){
+		if(s == e) return true;
+		for(GraphNode n: g.nodes){
+			n.state = State.unvisited;
+		}
+
+		Queue<GraphNode> q = new LinkedList<>();
+		q.add(s);
+		s.state = State.visited;
+		while(!q.isEmpty()){
+			GraphNode look = q.poll();
+			for(GraphNode n: look.neighbors){
+				if(n.state == State.unvisited){
+					if(n == e) return true;
+					n.state = State.visiting;
+					q.add(n);
+				}
+			}
+			look.state = State.visited;
+		}
+		return false;
 	}
 }

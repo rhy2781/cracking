@@ -1,5 +1,7 @@
 package stacksAndQueues.java.stackMin;
 
+import static java.lang.System.out;
+
 public class Solution {
 	public static void main(String []args){
 		minStack m = new minStack();
@@ -7,12 +9,15 @@ public class Solution {
 		m.push(2);
 		m.push(3);
 		m.push(4);
-		System.out.println(m.peek());
-		System.out.println(m.min());
-		System.out.println(m);
+		out.println(m.peek());
+		out.println(m.min());
+		out.println(m);
+		out.println();
+
 		m.push(0);
-		System.out.println(m.min());
-		System.out.println(m.pop());
-		System.out.println(m);
+		out.println(m);
+		out.println(m.min());
+		out.println(m.pop());
+		out.println(m);
 	}
 }

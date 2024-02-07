@@ -2,8 +2,10 @@ package stacksAndQueues.java.animalShelter;
 
 import java.util.ArrayList;
 import java.util.List;
+import static java.lang.System.out;
 
 public class Solution {
+
 	public static void createAnimals(String[][] pairs, List<Animal> storage){
 		for(String[] pair: pairs){
 			if(pair[0].equals("c")){
@@ -32,18 +34,18 @@ public class Solution {
 			aq.enqueue(a);
 		}
 
-		System.out.println(aq);
-		System.out.println(aq.dequeueAny());
-		System.out.println();
+		out.println(aq);
+		out.println(aq.dequeueAny());
+		out.println();
 
-		System.out.println(aq);
-		System.out.println(aq.dequeueCats());
-		System.out.println();
+		out.println(aq);
+		out.println(aq.dequeueCats());
+		out.println();
 
-		System.out.println(aq);
-		System.out.println(aq.dequeueDogs());
-		System.out.println();
+		out.println(aq);
+		out.println(aq.dequeueDogs());
+		out.println();
 
-		System.out.println(aq);
+		out.println(aq);
 	}
 }

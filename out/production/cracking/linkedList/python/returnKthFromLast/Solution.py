@@ -1,23 +1,31 @@
-from linkedList.python.returnKthFromLast import runnerApproach
-from linkedList.python.helper import create_node_from_dictionary
+from linkedList.python.helper import create_node_from_list
+from linkedList.python.linked_list_node import node
+
+
+def kth(n: node, k: int) -> node | None:
+    curr = n
+    while k > 0:
+        if curr is None:
+            return None
+        curr = curr.next
+        k -= 1
+
+    while curr:
+        curr = curr.next
+        n = n.next
+    return n
 
 
 def main():
-    l = [
-        [1, 1],
-        [2, 2],
-        [3, 3],
-        [4, 4],
-        [1, 5],
-        [2, 6],
-        [5, None]
-    ]
-    n = create_node_from_dictionary(l)
-    ra = runnerApproach
-    print(n)
-    print(ra.kth(n, 3))
-    print(ra.kth(n, 6))
-    print(ra.kth(n, 7))
+    init = [1, 2, 3, 4, 1, 2, 5]
+    n = create_node_from_list(init)
+    print("Linked List: " + repr(n))
+    print()
+
+    print(kth(n, 3))
+    print(kth(n, 6))
+    print(kth(n, 7))
+    print(kth(n, 10))
 
 
 if __name__ == "__main__":

@@ -1,21 +1,26 @@
-from linkedList.python.helper import create_node_from_dictionary, get_kth_node
-import iterativeApproach
+from linkedList.python.helper import create_node_from_list, get_kth_node
+from linkedList.python.linked_list_node import node
+
+
+def deleteMiddleNode(curr: node) -> None:
+    if not curr or not curr.next:
+        return
+    n = curr.next
+    curr.val = n.val
+    curr.next = n.next
 
 
 def main():
-    l = [
-        [1, 1],
-        [2, 2],
-        [3, 3],
-        [4, 4],
-        [5, None]
-    ]
-    n = create_node_from_dictionary(l)
-    m = get_kth_node(n, 3)
-    print(n)
-    ia = iterativeApproach
-    ia.deleteMiddleNode(m)
-    print(n)
+    source = [1, 2, 3, 4, 5]
+    n = create_node_from_list(source)
+
+    deletion_node = get_kth_node(n, 3)
+
+    print("Full Linked List: " + repr(n))
+    print("Node to Delete: " + repr(deletion_node))
+    print()
+    deleteMiddleNode(deletion_node)
+    print("Full Linked List After Deletion: " + repr(n))
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 from collections import deque
 from treesAndGraphs.python.graph import graph
-from treesAndGraphs.python.node import node
+from treesAndGraphs.python.graph_node import node
 from treesAndGraphs.python.state import state
 
 

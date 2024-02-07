@@ -8,7 +8,21 @@ public class Solution {
 		int[] source = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
 		BinaryTreeNode root = BinaryTreeNode.createBinaryTreeNodeFromSortedArray(source);
 
-		BinaryTreeNode.printTreeLevel(root, 0);
+		BinaryTreeNode root1 = new BinaryTreeNode(10);
+		root1.right = new BinaryTreeNode(15);
+		root1.left = new BinaryTreeNode(3);
+
+		BinaryTreeNode left = root1.left;
+		left.right = new BinaryTreeNode(4);
+		left.right.right = new BinaryTreeNode(5);
+		left.right.right.right = new BinaryTreeNode(9);
+
+		BinaryTreeNode.printTreeLevel(root);
+		out.println(checkBalanced(root));
+		out.println();
+
+		BinaryTreeNode.printTreeLevel(root1);
+		out.println(checkBalanced(root1));
 	}
 
 	public static boolean checkBalanced(BinaryTreeNode root){

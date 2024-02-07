@@ -1,7 +1,7 @@
 from collections import deque
-from treesAndGraphs.python.graph import graph
-from treesAndGraphs.python.graph_node import node
-from treesAndGraphs.python.state import state
+from treesAndGraphs.python.utility.graph import graph
+from treesAndGraphs.python.utility.graph_node import node
+from treesAndGraphs.python.utility.state import state
 
 
 def search(g: graph, s: node, e: node) -> bool:

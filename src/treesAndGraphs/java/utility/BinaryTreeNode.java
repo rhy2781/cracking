@@ -11,6 +11,10 @@ public class BinaryTreeNode {
 		this.right = null;
 	}
 
+	public static void printTreeLevel(BinaryTreeNode root){
+		printTreeLevel(root, 0);
+	}
+
 	public static void printTreeLevel(BinaryTreeNode root, int level) {
 		if (root != null) {
 			// Traverse the left subtree with an incremented level
@@ -26,6 +30,7 @@ public class BinaryTreeNode {
 			printTreeLevel(root.right, level + 1);
 		}
 	}
+
 	public static BinaryTreeNode createBinaryTreeNodeFromSortedArray(int[] source){
 		return createBinaryTreeNodeFromSortedArray(source, 0, source.length - 1);
 	}

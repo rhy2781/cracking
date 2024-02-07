@@ -1,8 +1,8 @@
 from typing import Dict
 from typing import List
 
-from treesAndGraphs.python.graph_node import node
-from treesAndGraphs.python.state import state
+from treesAndGraphs.python.utility.graph_node import node
+from treesAndGraphs.python.utility.state import state
 
 
 class graph:
@@ -18,7 +18,7 @@ class graph:
         s += ']'
         return s
 
-    def createFromDict(self, d: Dict[str, List[str]]) -> None:
+    def populate_graph_from_dictionary(self, d: Dict[str, List[str]]) -> None:
         for k in d.keys():
             n = node(k)
             self.nodes.append(n)

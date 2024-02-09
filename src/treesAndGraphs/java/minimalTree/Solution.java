@@ -9,5 +9,4 @@ public class Solution {
 		BinaryTreeNode root = BinaryTreeNode.createBinaryTreeNodeFromSortedArray(source);
 		viewBinaryTree.printTree(root);
 	}
-
 }

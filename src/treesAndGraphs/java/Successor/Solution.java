@@ -1,7 +1,11 @@
 package treesAndGraphs.java.Successor;
 
 import treesAndGraphs.java.utility.BinaryTreeNode;
-import treesAndGraphs.java.utility.viewBinaryTree;
+import static treesAndGraphs.java.utility.BinaryTreeNode.createBinaryTreeNodeFromHashMap;
+import static treesAndGraphs.java.utility.BinaryTreeNode.getNodeByValue;
+import static treesAndGraphs.java.utility.viewBinaryTree.printTree;
+
+import static java.lang.System.out;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -53,7 +57,27 @@ public class Solution {
 			put(10, new Integer[]{-1, -1}); // Node 10
 			put(13, new Integer[]{-1, -1}); // Node 13
 		}};
-		BinaryTreeNode root = BinaryTreeNode.createBinaryTreeNodeFromHashMap(init, 5);
-		viewBinaryTree.printTree(root);
+		BinaryTreeNode root = createBinaryTreeNodeFromHashMap(init, 5);
+		out.println("Binary Tree Example");
+		printTree(root);
+
+		BinaryTreeNode three = getNodeByValue(root, 3),
+				one = getNodeByValue(root, 1),
+				four = getNodeByValue(root, 4);
+
+		out.println("Successor of 3 in node traversal");
+		out.println("Expected: 4");
+		out.println("Result: " + successor(three).value);
+		out.println();
+
+		out.println("Successor of 1 in node traversal");
+		out.println("Expected: 2");
+		out.println("Result: " + successor(one).value);
+		out.println();
+
+		out.println("Successor of 4 in node traversal");
+		out.println("Expected: 5");
+		out.println("Result: " + successor(four).value);
+		out.println();
 	}
 }

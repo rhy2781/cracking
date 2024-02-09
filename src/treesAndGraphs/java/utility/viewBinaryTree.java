@@ -44,8 +44,7 @@ public class viewBinaryTree {
 
 		// print the resulting strings
 		int total_length = strings[0].length();
-		System.out.print("|" + "=".repeat(total_length) + "|");
-		System.out.println();
+		System.out.println("|" + "=".repeat(total_length) + "|");
 		for(int i = 0; i < strings.length; i++){
 			System.out.print("|");
 			System.out.print(strings[i].toString());
@@ -54,8 +53,7 @@ public class viewBinaryTree {
 				System.out.println("|" + " ".repeat(total_length) + "|");
 			}
 		}
-		System.out.print("|" + "=".repeat(total_length) + "|");
-		System.out.println();
+		System.out.println("|" + "=".repeat(total_length) + "|");
 	}
 
 	/**
@@ -126,12 +124,11 @@ public class viewBinaryTree {
 	 */
 	public static void fillTreeWithZeros(BinaryTreeNode root, int height){
 		if(height == 0) return;
-
 		if(root.right == null) root.right = new BinaryTreeNode(-1);
 		if(root.left == null) root.left = new BinaryTreeNode(-1);
 
-		fillTreeWithZeros(root.right, height - 1);
 		fillTreeWithZeros(root.left, height - 1);
+		fillTreeWithZeros(root.right, height - 1);
 	}
 
 	/**

@@ -4,9 +4,14 @@ import javax.print.attribute.standard.JobName;
 import java.util.*;
 
 public class viewBinaryTree {
+	/**
+	 * Print a binary tree formatted in the run window
+	 * @param root the root of the Binary Tree to be printed
+	 */
 	public static void printTree(BinaryTreeNode root){
 		int[][] combo = paddingBaseCombo(root);
-		fillTreeWithZeros(root);
+		BinaryTreeNode duplicate = duplicateTree(root); // duplicate tree to populate null nodes for spacing
+		fillTreeWithZeros(duplicate);
 		List<List<Integer>> levelOrder = levelOrderTraversal(root, height(root));
 
 		// initialize stringBuilders
@@ -17,7 +22,6 @@ public class viewBinaryTree {
 
 		// iterate over each level
 		for(int i = 0; i < combo.length; i++){
-			System.out.println(Arrays.toString(combo[i]));
 			int[] c = combo[i];
 			int padding = c[0];
 			int spacing = c[1];
@@ -30,24 +34,20 @@ public class viewBinaryTree {
 				if(value != -1){
 					String number = String.format("%2d", level.get(j));
 					line.append(number);
-//					line.append(level.get(j));
 				}
 				else{
 					line.append("  ");
-//					line.append(" X");
 				}
 				if(j != level.size() - 1) line.append(" ".repeat(spacing)); // insert spacing
 			}
 			line.append(" ".repeat(padding)); // padding
 		}
 
+		// print the resulting strings
 		for(StringBuilder s: strings){
 			System.out.println(s.toString());
+			System.out.println();
 		}
-
-
-
-
 	}
 
 	/**
@@ -70,6 +70,11 @@ public class viewBinaryTree {
 	 */
 	public static int[][] paddingBaseCombo(BinaryTreeNode root){
 		// variables used to calculate spacing
+		// 1-digit numbers
+		// space_value = 5;
+		// increment = 3;
+
+		// 2- digit numbers
 		int space_value = 8;
 		int increment = 5;
 
@@ -81,20 +86,11 @@ public class viewBinaryTree {
 		int bottomNodes = (int) Math.pow(2, (height - 1));
 		int bottomSpace = (bottomNodes - 1) *  space_value + (bottomNodes * 2);
 
-		System.out.println(bottomNodes);
-		System.out.println(bottomSpace);
-		// good up to here at least
-
 		// calculate numbers for each row
 		for(int i = height - 2; i >= 0; i--){
 			int nodesInLevel = (int) Math.pow(2, i);
 			int padding = combo[i + 1][0] + increment;
 			int spaceInLevel = bottomSpace - (nodesInLevel * 2);
-
-			System.out.println("Nodes: " + nodesInLevel);
-			System.out.println("padding: "  + padding);
-			System.out.println("spaceInLevel: " + spaceInLevel);
-			System.out.println();
 
 			// calculate padding + spacing for each level
 			combo[i][0] = padding;
@@ -130,6 +126,12 @@ public class viewBinaryTree {
 		fillTreeWithZeros(root.left, height - 1);
 	}
 
+	/**
+	 * return a list of integers representing the level order traversal of a binary search tree
+	 * @param root the root or the Binary Tree
+	 * @param height the height of the Binary Tree
+	 * @return a list of the integers in level order traversal
+	 */
 	public static List<List<Integer>> levelOrderTraversal(BinaryTreeNode root, int height){
 		List<List<Integer>> res = new ArrayList<>(height);
 		for(int i = 0; i < height; i ++){
@@ -151,13 +153,11 @@ public class viewBinaryTree {
 		return res;
 	}
 
-
-	public static void printCombination(int[][] combo){
-		System.out.println("[");
-		for(int[] c: combo){
-			System.out.print("\t");
-			System.out.println(Arrays.toString(c));
-		}
-		System.out.println("]");
+	public static BinaryTreeNode duplicateTree(BinaryTreeNode root){
+		if(root == null) return null;
+		BinaryTreeNode parent = new BinaryTreeNode(root.value);
+		parent.left = duplicateTree(root.left);
+		parent.right = duplicateTree(root.right);
+		return parent;
 	}
 }

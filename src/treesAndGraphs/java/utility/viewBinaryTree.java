@@ -12,7 +12,7 @@ public class viewBinaryTree {
 		int[][] combo = paddingBaseCombo(root);
 		BinaryTreeNode duplicate = duplicateTree(root); // duplicate tree to populate null nodes for spacing
 		fillTreeWithZeros(duplicate);
-		List<List<Integer>> levelOrder = levelOrderTraversal(root, height(root));
+		List<List<Integer>> levelOrder = levelOrderTraversal(duplicate, height(duplicate));
 
 		// initialize stringBuilders
 		StringBuilder[] strings = new StringBuilder[combo.length];

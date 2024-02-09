@@ -1,13 +1,14 @@
 package treesAndGraphs.java.checkBalanced;
 
 import treesAndGraphs.java.utility.BinaryTreeNode;
-import treesAndGraphs.java.utility.viewBinaryTree;
+import static treesAndGraphs.java.utility.BinaryTreeNode.createBinaryTreeNodeFromSortedArray;
+import static treesAndGraphs.java.utility.viewBinaryTree.printTree;
 import static java.lang.System.out;
 
 public class Solution {
 	public static void main(String[] args){
 		int[] source = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-		BinaryTreeNode root = BinaryTreeNode.createBinaryTreeNodeFromSortedArray(source);
+		BinaryTreeNode root = createBinaryTreeNodeFromSortedArray(source);
 
 		BinaryTreeNode root1 = new BinaryTreeNode(10);
 		root1.right = new BinaryTreeNode(15);
@@ -18,11 +19,11 @@ public class Solution {
 		left.right.right = new BinaryTreeNode(5);
 		left.right.right.right = new BinaryTreeNode(9);
 
-		viewBinaryTree.printTree(root);
+		printTree(root);
 		out.println(checkBalanced(root));
 		out.println();
 
-		viewBinaryTree.printTree(root1);
+		printTree(root1);
 		out.println(checkBalanced(root1));
 	}
 

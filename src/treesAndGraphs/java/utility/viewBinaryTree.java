@@ -44,19 +44,17 @@ public class viewBinaryTree {
 
 		// print the resulting strings
 		int total_length = strings[0].length();
-		System.out.print("=".repeat(total_length + 2));
+		System.out.print("|" + "=".repeat(total_length) + "|");
 		System.out.println();
 		for(int i = 0; i < strings.length; i++){
 			System.out.print("|");
 			System.out.print(strings[i].toString());
 			System.out.println("|");
 			if(i != strings.length - 1) {
-				System.out.print("|");
-				System.out.print(" ".repeat(total_length));
-				System.out.println("|");
+				System.out.println("|" + " ".repeat(total_length) + "|");
 			}
 		}
-		System.out.print("=".repeat(total_length + 2));
+		System.out.print("|" + "=".repeat(total_length) + "|");
 		System.out.println();
 	}
 

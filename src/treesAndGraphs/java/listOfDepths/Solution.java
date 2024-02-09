@@ -1,20 +1,21 @@
 package treesAndGraphs.java.listOfDepths;
 
 import treesAndGraphs.java.utility.BinaryTreeNode;
-import treesAndGraphs.java.utility.viewBinaryTree;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
 import static java.lang.System.out;
+import static treesAndGraphs.java.utility.viewBinaryTree.printTree;
+import static treesAndGraphs.java.utility.BinaryTreeNode.createBinaryTreeNodeFromSortedArray;
 
 public class Solution {
 	public static void main(String[] args){
 		int[] source = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-		BinaryTreeNode root = BinaryTreeNode.createBinaryTreeNodeFromSortedArray(source);
+		BinaryTreeNode root = createBinaryTreeNodeFromSortedArray(source);
 		List<LinkedList<Integer>> res = createLinkedList(root);
 
-		viewBinaryTree.printTree(root);
+		printTree(root);
 		out.println();
 		out.println(res);
 	}

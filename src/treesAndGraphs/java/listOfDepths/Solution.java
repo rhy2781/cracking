@@ -1,6 +1,7 @@
 package treesAndGraphs.java.listOfDepths;
 
 import treesAndGraphs.java.utility.BinaryTreeNode;
+import treesAndGraphs.java.utility.viewBinaryTree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -13,7 +14,7 @@ public class Solution {
 		BinaryTreeNode root = BinaryTreeNode.createBinaryTreeNodeFromSortedArray(source);
 		List<LinkedList<Integer>> res = createLinkedList(root);
 
-		BinaryTreeNode.printTreeLevel(root, 0);
+		viewBinaryTree.printTree(root);
 		out.println();
 		out.println(res);
 	}

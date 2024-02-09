@@ -1,6 +1,7 @@
 package treesAndGraphs.java.checkBalanced;
 
 import treesAndGraphs.java.utility.BinaryTreeNode;
+import treesAndGraphs.java.utility.viewBinaryTree;
 import static java.lang.System.out;
 
 public class Solution {
@@ -17,11 +18,11 @@ public class Solution {
 		left.right.right = new BinaryTreeNode(5);
 		left.right.right.right = new BinaryTreeNode(9);
 
-		BinaryTreeNode.printTreeLevel(root);
+		viewBinaryTree.printTree(root);
 		out.println(checkBalanced(root));
 		out.println();
 
-		BinaryTreeNode.printTreeLevel(root1);
+		viewBinaryTree.printTree(root1);
 		out.println(checkBalanced(root1));
 	}
 

@@ -4,19 +4,19 @@ import treesAndGraphs.java.utility.BinaryTreeNode;
 
 
 import static java.lang.System.out;
-import static treesAndGraphs.java.utility.BinaryTreeNode.printTreeLevel;
+import treesAndGraphs.java.utility.viewBinaryTree;
 
 public class Solution {
 	public static void main(String[] args){
 		int[] init = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 		BinaryTreeNode root = BinaryTreeNode.createBinaryTreeNodeFromSortedArray(init);
-		printTreeLevel(root);
+		viewBinaryTree.printTree(root);
 		out.println(validate(root));
 		out.println();
 
 		BinaryTreeNode override = root.right;
 		override.value = 100;
-		printTreeLevel(root);
+		viewBinaryTree.printTree(root);
 		out.println(validate(root));
 	}
 

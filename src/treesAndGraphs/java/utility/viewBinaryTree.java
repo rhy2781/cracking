@@ -1,6 +1,5 @@
 package treesAndGraphs.java.utility;
 
-import javax.print.attribute.standard.JobName;
 import java.util.*;
 
 public class viewBinaryTree {
@@ -44,10 +43,21 @@ public class viewBinaryTree {
 		}
 
 		// print the resulting strings
-		for(StringBuilder s: strings){
-			System.out.println(s.toString());
-			System.out.println();
+		int total_length = strings[0].length();
+		System.out.print("=".repeat(total_length + 2));
+		System.out.println();
+		for(int i = 0; i < strings.length; i++){
+			System.out.print("|");
+			System.out.print(strings[i].toString());
+			System.out.println("|");
+			if(i != strings.length - 1) {
+				System.out.print("|");
+				System.out.print(" ".repeat(total_length));
+				System.out.println("|");
+			}
 		}
+		System.out.print("=".repeat(total_length + 2));
+		System.out.println();
 	}
 
 	/**
@@ -153,6 +163,12 @@ public class viewBinaryTree {
 		return res;
 	}
 
+	/**
+	 * Duplicate the given binary tree in order to fill in gaps with -1 value nodes to facilitate proper spacing without
+	 * affecting the original tree
+	 * @param root the root of the original binary tree
+	 * @return the root of the new binary tree
+	 */
 	public static BinaryTreeNode duplicateTree(BinaryTreeNode root){
 		if(root == null) return null;
 		BinaryTreeNode parent = new BinaryTreeNode(root.value);

@@ -1,4 +1,5 @@
-from treesAndGraphs.python.utility.binary_tree_node import node, create_binary_tree_from_sorted_array, print_binary_tree
+from treesAndGraphs.python.utility.binary_tree_node import node, create_binary_tree_from_sorted_array
+from treesAndGraphs.python.utility.view_binary_tree import print_tree
 
 
 def validate(root: node) -> bool:
@@ -15,15 +16,15 @@ def validate_r(root: node, low: any, high: any) -> bool:
 
 
 def main():
-    init = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+    init = [i for i in range(16)]
     root = create_binary_tree_from_sorted_array(init)
-    print_binary_tree(root)
+    print_tree(root)
     print(validate(root))
     print()
 
     override = root.right
-    override.value = 100
-    print_binary_tree(root)
+    override.value = 99
+    print_tree(root)
     print(validate(root))
 
 

@@ -1,4 +1,4 @@
-package treesAndGraphs.java.Successor;
+package treesAndGraphs.java.successor;
 
 import treesAndGraphs.java.utility.BinaryTreeNode;
 import static treesAndGraphs.java.utility.BinaryTreeNode.createBinaryTreeNodeFromHashMap;

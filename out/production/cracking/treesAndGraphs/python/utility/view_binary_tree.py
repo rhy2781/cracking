@@ -40,14 +40,6 @@ def print_tree(root: node) -> None:
     print("|" + '=' * total_length + "|")
 
 
-
-
-
-
-
-
-
-
 def padding_base_combo(root: node) -> List[List[int]]:
     space_value = 8
     increment = 5

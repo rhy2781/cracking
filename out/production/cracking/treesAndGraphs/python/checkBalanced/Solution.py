@@ -1,5 +1,5 @@
-from treesAndGraphs.python.utility.binary_tree_node import create_binary_tree_from_sorted_array, node, print_binary_tree
-
+from treesAndGraphs.python.utility.binary_tree_node import create_binary_tree_from_sorted_array, node
+from treesAndGraphs.python.utility.view_binary_tree import print_tree
 
 def checkBalanced(root: node) -> bool:
     if not root:
@@ -28,13 +28,13 @@ def main():
     left.right.right = node(5)
     left.right.right.right = node(9)
 
-    print_binary_tree(root)
+    print_tree(root)
     print(checkBalanced(root))
     print()
 
-    init = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    init = [i for i in range(14)]
     root1 = create_binary_tree_from_sorted_array(init)
-    print_binary_tree(root1)
+    print_tree(root1)
     print(checkBalanced(root1))
 
 

@@ -5,7 +5,7 @@ import static treesAndGraphs.java.utility.viewBinaryTree.paddingBaseCombo;
 
 public class temp {
 	public static void main(String[] args) {
-		int n = 10;
+		int n = 50;
 		int[] init = new int[n];
 		for (int i = 0; i < n; i++) {
 			init[i] = i;

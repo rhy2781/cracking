@@ -1,4 +1,5 @@
-from treesAndGraphs.python.utility.binary_tree_node import node, create_binary_tree_from_sorted_array, print_binary_tree
+from treesAndGraphs.python.utility.binary_tree_node import node, create_binary_tree_from_sorted_array
+from treesAndGraphs.python.utility.view_binary_tree import print_tree
 from linkedList.python.linked_list_node import node as linked_list
 from typing import List
 
@@ -30,7 +31,7 @@ def main():
     root = create_binary_tree_from_sorted_array(source)
     res = create_linked_list_from_binary_tree(root)
 
-    print_binary_tree(root)
+    print_tree(root)
     print()
 
     print("[")

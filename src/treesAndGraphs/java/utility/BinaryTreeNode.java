@@ -63,8 +63,11 @@ public class BinaryTreeNode {
 	public static BinaryTreeNode getNodeByValue(BinaryTreeNode root, int value){
 		if(root == null) return null;
 		if(root.value == value) return root;
-		BinaryTreeNode res = getNodeByValue(root.left, value);
-		if(res != null) return res;
-		return getNodeByValue(root.right, value);
+		if (root.value < value){
+			return getNodeByValue(root.right, value);
+		}
+		else{
+			return getNodeByValue(root.left, value);
+		}
 	}
 }

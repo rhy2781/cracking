@@ -11,5 +11,5 @@ class node:
         for n in self.neighbors:
             s += n.name
             s += ', '
-        s += '\n'
+        # s += '\n'
         return s
